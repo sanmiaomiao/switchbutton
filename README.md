@@ -1,5 +1,6 @@
 # switchbutton
 一个简易切换状态的封装jquery插件
+##只需把switch.js和switch.css下下来，在html中引入，然后按照下面指南使用即可，上面的index.html为一个实际使用插件的例子，可以模仿使用。
 
 		 /**写在前面：
 		     * switch插件基于jquery,使用时要引用相应的js
