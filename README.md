@@ -12,11 +12,17 @@
 		     *     
 		     *  },
 		     * 使用：
-			 * 			var myswitch=new Switch('#outer','#circle');
-						myswitch.init();
-						$('#circle').click(function(){
-							myswitch.change();
-						});
+			 * 	var active=function (){//活跃时的回调函数
+					console.log('外部活跃时调用')
+					}
+				var unactive=function (){//非活跃时的回调函数
+					console.log('外部非活跃时调用')
+					}
+				var myswitch=new Switch('#outer','#circle',active,unactive);
+				myswitch.init();
+				$('#circle').click(function(){
+					myswitch.change();
+				})
 			*
 			*html中引入：
 			* 	<script src="jquery.js"></script>
