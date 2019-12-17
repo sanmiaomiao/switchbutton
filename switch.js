@@ -4,6 +4,9 @@
 		     *   param: {
 		     *      selector1:外部div选择器
 		     *      selector2: 内部div选择器
+			 * 		callback1:活跃时的回调函数，默认为：()=>console.log('调用了活跃时的回调函数')
+			 * 		callback2:非活跃时的回调函数，默认为：()=>console.log('调用了非活跃时的回调函数')
+			 * 
 		     *     
 		     *  },
 		     * 使用：
@@ -31,9 +34,11 @@
 					}
 			* 
 		     */
-			function Switch(selector1,selector2){
+			function Switch(selector1,selector2,callback1,callback2){
 				this.oouter=$(selector1);
 				this.ocircle=$(selector2)
+				this.ocallback1=callback1?callback1:()=>console.log('调用了活跃时的回调函数')
+				this.ocallback2=callback1?callback2:()=>console.log('调用了非活跃时的回调函数')
 			}
 			Switch.prototype={
 				constructor:Switch,
@@ -44,9 +49,11 @@
 				},
 				change:function(){
 					if(this.ocircle[0].className==='circle'){
-						this.ocircle[0].className='circle-active'
+						this.ocircle[0].className='circle-active',
+						this.ocallback1();
 					}else{
-						this.ocircle[0].className='circle'
+						this.ocircle[0].className='circle',
+						this.ocallback2();
 					}
 					if(this.oouter[0].className==='outer'){
 						this.oouter[0].className='outer-active'
